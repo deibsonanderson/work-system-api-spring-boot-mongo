@@ -35,13 +35,13 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public Category findByName(String name) {
-		return categoryRepository.findByName(name);
+	public Category findByName(String title) {
+		return categoryRepository.findByTitle(title);
 	}
 
 	@Override
-	public List<Category> findByNameRegex(String name) {
-		return categoryRepository.findByNameRegex(".*" + name + ".*");
+	public List<Category> findByNameRegex(String title) {
+		return categoryRepository.findByTitleRegex(".*" + title + ".*");
 	}
 
 	@Override

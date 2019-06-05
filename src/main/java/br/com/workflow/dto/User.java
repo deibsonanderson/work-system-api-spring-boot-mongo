@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.workflow.constants.Profiles;
 import lombok.Data;
 
 @Data
@@ -22,5 +23,5 @@ public class User implements Serializable {
 
 	private String password;
 
-	private String profile;
+	private Profiles profile;
 }

@@ -19,14 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.workflow.dto.Category;
 import br.com.workflow.service.CategoryService;
 
-/**
- * The Class CategoryController.
- */
+
 @RestController
 @RequestMapping("/system")
 public class CategoryController {
 
-	/** The category service. */
 	@Autowired
 	CategoryService categoryService;
 
@@ -46,7 +43,7 @@ public class CategoryController {
 		return ResponseEntity.ok(categoryService.findByName(name));
 	}
 
-	@GetMapping(value = "/category/id/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/category/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Category> findById(@PathVariable("id") String id) {
 		return ResponseEntity.ok(categoryService.findById(id));
 	}
@@ -57,13 +54,13 @@ public class CategoryController {
 	}
 
 	@PostMapping(value = "/category", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Category> create(@RequestBody Category category) {
-		return ResponseEntity.ok(categoryService.create(category));
+	public ResponseEntity<Category> create(@RequestBody Category payload) {
+		return ResponseEntity.ok(categoryService.create(payload));
 	}
 
 	@PutMapping(value = "/category", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Category> update(@RequestBody Category category) {
-		return ResponseEntity.ok(categoryService.update(category));
+	public ResponseEntity<Category> update(@RequestBody Category payload) {
+		return ResponseEntity.ok(categoryService.update(payload));
 	}
 
 	@DeleteMapping(value = "/category/{id}", produces = MediaType.APPLICATION_JSON_VALUE)

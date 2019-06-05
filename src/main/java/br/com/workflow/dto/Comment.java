@@ -17,11 +17,8 @@ public class Comment  implements Serializable {
 
 	private String description;
 
-	private String file;
-
-	private String flowProcess;
+	private String attachment;
 
 	private Date date;
 
-	private String process;
 }

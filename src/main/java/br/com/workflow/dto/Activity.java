@@ -2,9 +2,16 @@ package br.com.workflow.dto;
 
 import java.io.Serializable;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import br.com.workflow.constants.Propertys;
 import lombok.Data;
 
 @Data
@@ -14,6 +21,10 @@ public class Activity implements Serializable {
 	@Id
 	private String id;
 
+	@JsonProperty(required=true)
+	@Valid
+	@NotNull
+	@NotBlank
 	private String title;
 
 	private String description;
@@ -22,23 +33,27 @@ public class Activity implements Serializable {
 
 	private String link;
 
-	private String file;
+	private String file; //anexo
 
-	private String value;
+	private Float value; //price or coust
 
-	private String property;
+	private Propertys property; //negative or positiv
 
+	@JsonProperty(required=true)
+	@Valid
+	@NotNull
+	@NotBlank
 	private Category category;
 
-	private String user;
+	private User user;
 
-	private String maturity;
+	private Integer maturity; //limit date
 	
 	//FlowProcess
-    private String active;
+    private boolean active; //open or closed
     
-    private String practitioner;//atuante
+    private boolean focus;//atuante
     
-    private String process;
+    
 
 }
